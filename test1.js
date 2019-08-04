@@ -2,17 +2,16 @@ let startBtn = document.getElementById("start"),
     budgetValue = document.getElementsByClassName('budget-value')[0],
     dayBudgetValue = document.getElementsByClassName('daybudget-value')[0],
     levelValue = document.getElementsByClassName('level-value')[0],
-    expensesValue = document.getElementsByClassName('exspenses-value')[0],
-    optionalExpensesValue = document.getElementsByClassName('optionalexspenses-value')[0],
+    expensesValue = document.getElementsByClassName('expenses-value')[0],
+    optionalExpensesValue = document.getElementsByClassName('optionalexpenses-value')[0],
     incomeValue = document.getElementsByClassName('income-value')[0],
     monthSavingsValue = document.getElementsByClassName('monthsavings-value')[0],
     yearSavingsValue = document.getElementsByClassName('yearsavings-value')[0],
-
-    expensesItem = document.getElementsByClassName('exspenses-item'),
+    expensesItem = document.getElementsByClassName('expenses-item'),
     expensesBtn = document.getElementsByTagName('button')[0],
-    optionalExspensesBtn = document.getElementsByTagName('button')[1],
+    optionalExpensesBtn = document.getElementsByTagName('button')[1],
     countBtn = document.getElementsByTagName('button')[2],
-    optionalExpensesItem = document.querySelectorAll('.optionalexspenses-item'),
+    optionalExpensesItem = document.querySelectorAll('.optionalexpenses-item'),
     incomeItem = document.querySelector('.choose-income'),
     checkSavings = document.querySelector('#savings'),
     sumValue = document.querySelector('.choose-sum'),
@@ -21,8 +20,8 @@ let startBtn = document.getElementById("start"),
     monthValue = document.querySelector('.month-value'),
     dayValue = document.querySelector('.day-value');
 
+    
 let money, time;
-
 
 startBtn.addEventListener('click', function() {
     time = prompt("Введите дату в формате YYYY-MM-DD");
@@ -38,6 +37,7 @@ startBtn.addEventListener('click', function() {
     monthValue.value = new Date(Date.parse(time)).getMonth() + 1;
     dayValue.value = new Date(Date.parse(time)).getDate();
 });
+
 
 expensesBtn.addEventListener('click', function() {
     let sum = 0;
@@ -56,11 +56,11 @@ expensesBtn.addEventListener('click', function() {
     expensesValue.textContent = sum;
 });
 
-optionalExspensesBtn.addEventListener('click', function() {
+optionalExpensesBtn.addEventListener('click', function() {
     for ( let i = 0; i < optionalExpensesItem.length; i++) {
         let opt = optionalExpensesItem[i].value;
         appData.optionalExpenses[i] = opt;
-        optionalExpensesValue.textContent += appData.optionalExpensesItem[i] + ' ';
+        optionalExpensesValue.textContent += appData.optionalExpenses[i] + ' ';
     }
 });
 
